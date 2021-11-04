@@ -21,3 +21,24 @@ print(DicionarioPessoa.get('Item_nao_existente', ['Volta valor padrao']))
 
 # pegar chaves + valores
 print(DicionarioPessoa.items())
+
+# Adionanco e modificando os valores do dicionario
+DicionarioPessoa['Idade'] = 23
+DicionarioPessoa['Cursos'].append('Genexus')
+print(DicionarioPessoa)
+
+# le e exclui o valor
+print(DicionarioPessoa.pop('Idade'))
+print(DicionarioPessoa)
+
+# Excluir valores
+del DicionarioPessoa['Cursos']
+print(DicionarioPessoa)
+
+# Limpa todo o dicionario
+DicionarioPessoa.clear()
+print(DicionarioPessoa)
+
+# Adicionar itens no dicionario
+DicionarioPessoa.update({'Idade': 22, 'Sexo': 'M'})
+print(DicionarioPessoa)
