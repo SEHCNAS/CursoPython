@@ -19,3 +19,11 @@ print(Lista_2)
 # Reverter uma lista
 Lista_2.reverse()
 print(Lista_2)
+
+# Acessar o index de um objeto dentro da lista
+Lista_3 = [1, 5, 'Gabriel', 'Sanches', 3.1415]
+print(Lista_3.index('Gabriel'))
+
+# Validar se item esta na lista
+print(1 in Lista_3)
+print('Gabriel' in Lista_3)
