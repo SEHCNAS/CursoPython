@@ -8,3 +8,5 @@ if __name__ == '__main__':
         '<div class ="success">Incluido com sucesso</div>'
     assert tag_bloco('Erro ao excluir dados', 'error') == \
         '<div class ="error">Erro ao excluir dados</div>'
+
+    print(tag_bloco('bloco'))
