@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta
 
-#Projeto Cria uma lista de tarefas vazia
+# Projeto Cria uma lista de tarefas vazia
+
+
 class Projeto:
     def __init__(self, nome):
         self.nome = nome
@@ -9,7 +11,7 @@ class Projeto:
     def __iter__(self):
         return self.tarefas.__iter__()
 
-    #SOBRE CARGA DO OPERADOR +=
+    # SOBRE CARGA DO OPERADOR +=
     def __iadd__(self, tarefa):
         tarefa.dono = self
         self._add_tarefa(tarefa)
@@ -29,7 +31,7 @@ class Projeto:
             # index error
             return [tarefa for tarefa in self.tarefas
                     if tarefa.descricao == descricao][0]
-        except IndexError as e: #Exception para pegar qualquer erro
+        except IndexError as e:  # Exception para pegar qualquer erro
             raise TarefaNaoEncontrada(str(e))
 
     def __str__(self):
@@ -42,7 +44,9 @@ class Projeto:
     def _add_nova_tarefa(self, descricao, **Kwargs):
         self.tarefas.append(Tarefa(descricao, Kwargs.get('vencimento', None)))
 
-#Define as caracteristica de cada tarefa
+# Define as caracteristica de cada tarefa
+
+
 class Tarefa:
     def __init__(self, descricao, vencimento=None):
         self.descricao = descricao
@@ -66,7 +70,10 @@ class Tarefa:
 
         return f'{self.descricao}' + ' '.join(status)
 
-#Define as caracteristica de cada tarefa Recorrente - herdando caracteristica de Tarefa
+# Define as caracteristica de cada tarefa Recorrente - herdando caracteristica
+# de Tarefa
+
+
 class TarefaRecorrente(Tarefa):
     def __init__(self, descricao, vencimento, dias=7):
         super().__init__(descricao, vencimento)
@@ -76,13 +83,16 @@ class TarefaRecorrente(Tarefa):
     def concluir(self):
         super().concluir()
         novo_vencimento = datetime.now() + timedelta(days=self.dias)
-        nova_tarefa = TarefaRecorrente(self.descricao, novo_vencimento, self.dias)
+        nova_tarefa = TarefaRecorrente(
+            self.descricao, novo_vencimento, self.dias)
         if self.dono:
             self.dono += nova_tarefa
         return nova_tarefa
 
+
 class TarefaNaoEncontrada(Exception):
     pass
+
 
 def main():
     # lista 2
@@ -107,6 +117,7 @@ def main():
         print(f'A causa foi {str(e)}')
     finally:
         print('Sempre sera executado')
+
 
 if __name__ == '__main__':
     main()
