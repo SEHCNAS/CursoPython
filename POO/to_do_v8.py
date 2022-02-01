@@ -25,10 +25,12 @@ class Projeto:
         return [tarefa for tarefa in self.tarefas if not tarefa.feito]
 
     def procurar(self, descricao):
-        # index error
-        # pega fixo sempre o primeiro item que procurou
-        return [tarefa for tarefa in self.tarefas
-                if tarefa.descricao == descricao][0]
+        try:
+            # index error
+            return [tarefa for tarefa in self.tarefas
+                    if tarefa.descricao == descricao][0]
+        except IndexError as e: #Exception para pegar qualquer erro
+            raise TarefaNaoEncontrada(str(e))
 
     def __str__(self):
         return f'{self.nome} ({len(self.pendentes())} tarefa(s) pendente(s)) '
@@ -79,6 +81,8 @@ class TarefaRecorrente(Tarefa):
             self.dono += nova_tarefa
         return nova_tarefa
 
+class TarefaNaoEncontrada(Exception):
+    pass
 
 def main():
     # lista 2
@@ -96,6 +100,13 @@ def main():
     print(mercado)
     for tarefa in mercado:
         print(f'--{tarefa}')
+
+    try:
+        mercado.procurar('Comprar arroz - erro').concluir
+    except TarefaNaoEncontrada as e:
+        print(f'A causa foi {str(e)}')
+    finally:
+        print('Sempre sera executado')
 
 if __name__ == '__main__':
     main()
