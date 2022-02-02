@@ -1,4 +1,5 @@
 from datetime import datetime
+MAIOR_IDADE = 18
 
 
 class Pessoa:
@@ -7,9 +8,11 @@ class Pessoa:
         self.idade = idade
 
     def is_adulto(self):
-        self.Is_adulto = True if self.idade >= 18 else False
+        return (self.idade or 0) > MAIOR_IDADE
 
     def __str__(self):
+        if not self.idade:
+            return f'nome: {self.nome}'
         return f'nome: {self.nome} e idade: {self.idade}'
 
 
@@ -59,8 +62,12 @@ def main():
 
     Compra_1 = Compra(Vendedor_1, datetime.now(), 1555)
     Compra_2 = Compra(Vendedor_2, datetime.now(), 1500)
+    Compra_3 = Compra(Vendedor_2, datetime(2019, 6, 1), 1400)
+
     Cliente_1.registrar_compra(Compra_1)
     Cliente_2.registrar_compra(Compra_2)
+    Cliente_1.registrar_compra(Compra_3)
+
     print(Cliente_1.get_data_ultima_compra())
     print(Cliente_1.total_compras())
 
