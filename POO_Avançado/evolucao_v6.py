@@ -56,8 +56,6 @@ class HomoSapiens(Humano):
 
 
 if __name__ == '__main__':
-
-
     try:
         anonimo = Humano('Jose aberto')
         print(anonimo.inteligente)
