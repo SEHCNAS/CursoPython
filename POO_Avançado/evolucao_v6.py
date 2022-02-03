@@ -1,4 +1,7 @@
-class Humano:
+from abc import ABCMeta, abstractproperty
+
+# ABCmeta define a classe como abstrata - não pode ser instanciada
+class Humano(metaclass=ABCMeta):
     # atributo de classe - unico valor pra classe
     especie = 'Homo Sapiens'
 
@@ -6,10 +9,10 @@ class Humano:
         self.nome = nome
         self._idade = None
 
-    # Propriedade abstrata - tem que ser resolvido nas subClasses
-    @property
+    # Propriedade abstrata  - tem que ser resolvido nas subClasses
+    @abstractproperty
     def inteligente(self):
-        raise NotImplementedError('Propriedade não implementado')
+        pass
 
     @property
     def idade(self):
@@ -53,12 +56,13 @@ class HomoSapiens(Humano):
 
 
 if __name__ == '__main__':
-    anonimo = Humano('Jose aberto')
+
 
     try:
+        anonimo = Humano('Jose aberto')
         print(anonimo.inteligente)
-    except NotImplementedError:
-        print('Propriedade abstrata')
+    except TypeError:
+        print('Classe abstrata')
 
     jose = HomoSapiens('Jose')
     print('{} da classe {}, inteligente {}'.format(jose.nome, jose.__class__.__name__, jose.inteligente))
