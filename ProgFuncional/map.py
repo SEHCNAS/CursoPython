@@ -17,3 +17,7 @@ print(list(nomes))
 nomes = map(lambda i: i['Idade'], lista2)
 
 print(tuple(nomes))
+
+#Desafio
+frases = map(lambda f: f'{f["Nome"]} tem {f["Idade"]} anos.', lista2)
+print(list(frases))
