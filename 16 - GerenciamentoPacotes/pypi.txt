@@ -1,0 +1,15 @@
+pypi.org - site onde é possivel baixar pacotes
+
+pip --help - mostra opções disponiveis
+
+python --version - mostra a versão instalada
+
+python -m pip install --upgrade pip - atualiza a versão do pip
+
+pip list - mostra itens instalados
+
+pip install --user Django - instalar dentro da pasta de usuario
+
+pip install -r <arquivo com os dados do pip freeeze>
+
+pip list --outdated - checar se tem algum pacote desatualizado
