@@ -13,3 +13,5 @@ pip install --user Django - instalar dentro da pasta de usuario
 pip install -r <arquivo com os dados do pip freeeze>
 
 pip list --outdated - checar se tem algum pacote desatualizado
+
+.venv\Scripts\activate - comando para ativar o venc no windows
