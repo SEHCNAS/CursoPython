@@ -1,0 +1,4 @@
+USE AGENDA;
+SELECT * FROM CONTATOS 
+limit 5
+offset 2;
