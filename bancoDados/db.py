@@ -4,8 +4,8 @@ from mysql.connector import connect
 from contextlib import contextmanager
 
 parametros = dict(
-    host='localhsot',
-    port=3308,
+    host='localhost',
+    port='3308',
     user='root',
     passwd='qwerty',
     database='agenda'
