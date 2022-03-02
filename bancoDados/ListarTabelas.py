@@ -15,7 +15,7 @@ try:
                 print(f'Tabelas {i}: {tabelas[0]}')
 
         except ProgrammingError as e:
-            print(f'Erro de conexao: {e.msg}')
+            print(f'Erro: {e.msg}')
 
 except ProgrammingError as e:
     print(f'Erro de conexao: {e.msg}')

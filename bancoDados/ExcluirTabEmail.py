@@ -11,6 +11,6 @@ try:
             cursor = conexao.cursor()
             cursor.execute(ExluirTabEmail)
         except ProgrammingError as e:
-            print(f"Erro conexao: {e.msg}")
+            print(f"Erro: {e.msg}")
 except ProgrammingError as e:
     print(f"Erro conexao: {e.msg}")
