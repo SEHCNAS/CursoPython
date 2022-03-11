@@ -1,6 +1,5 @@
 #!python3
 import mysql.connector
-
 from mysql.connector import connect
 
 conexao = connect(
