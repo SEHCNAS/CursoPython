@@ -1,8 +1,8 @@
 from mysql.connector.errors import ProgrammingError
 from db import nova_conexao
-
+# limit - Limita o numero de dados
 sql = """
-    SELECT * FROM contatos
+    SELECT * FROM contatos limit 2
 """
 
 with nova_conexao() as conexao:
